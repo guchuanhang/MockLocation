@@ -1,4 +1,4 @@
-package com.xp.pro.mocklocationlib;
+package com.xp.pro.mocklocation;
 
 import android.content.Context;
 import android.location.Location;
@@ -34,7 +34,10 @@ public class LocationWidget extends LinearLayout {
     private Button btnStartMock = null;
     private Button btnStopMock = null;
     private ImageView locationWigdetTipIv;
+    private TextView locationWigdetTipTv;
     private LinearLayout locationWigdetDataLl;
+    private double curLongitude = 0.0;
+    private double curLatitude = 0.0;
 
 
     public LocationWidget(Context context) {
@@ -63,19 +66,20 @@ public class LocationWidget extends LinearLayout {
         tvLongitude = (TextView) layout.findViewById(R.id.tv_longitude);
         tvSystemMockPositionStatus = (TextView) findViewById(R.id.tv_system_mock_position_status);
         locationWigdetTipIv = (ImageView) findViewById(R.id.location_wigdet_tip_iv);
+        locationWigdetTipTv = (TextView) findViewById(R.id.location_widget_tip_tv);
         locationWigdetDataLl = (LinearLayout) findViewById(R.id.location_wigdet_data_ll);
 
         btnStartMock = (Button) findViewById(R.id.btn_start_mock);
         btnStopMock = (Button) findViewById(R.id.btn_stop_mock);
 
         mockLocationManager = new MockLocationManager();
-        btnStartMock.setOnClickListener(new View.OnClickListener() {
+        btnStartMock.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 startMock();
             }
         });
-        btnStopMock.setOnClickListener(new View.OnClickListener() {
+        btnStopMock.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 stopMock();
@@ -119,6 +123,7 @@ public class LocationWidget extends LinearLayout {
             }
             tvSystemMockPositionStatus.setText("已开启");
             locationWigdetTipIv.setVisibility(View.GONE);
+            locationWigdetTipTv.setVisibility(View.GONE);
             locationWigdetDataLl.setVisibility(View.VISIBLE);
         } else {
             mockLocationManager.bRun = false;
@@ -126,6 +131,7 @@ public class LocationWidget extends LinearLayout {
             btnStopMock.setEnabled(false);
             tvSystemMockPositionStatus.setText("未开启");
             locationWigdetTipIv.setVisibility(View.VISIBLE);
+            locationWigdetTipTv.setVisibility(View.VISIBLE);
             locationWigdetDataLl.setVisibility(View.GONE);
         }
         mockLocationManager.locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);

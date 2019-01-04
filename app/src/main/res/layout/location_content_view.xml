@@ -4,24 +4,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.xp.pro.mocklocationlib.LocationWidget
+    <EditText
+        android:id="@+id/et_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="please input latitude" />
+
+    <EditText
+        android:id="@+id/et_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="please input Longitude" />
+
+    <Button
+        android:id="@+id/btn_set_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置经纬度" />
+
+    <com.xp.pro.mocklocation.LocationWidget
         android:id="@+id/id_location_wigdet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </com.xp.pro.mocklocationlib.LocationWidget>
+    </com.xp.pro.mocklocation.LocationWidget>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/btn_mock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
+            android:text="开始模拟"
             android:textColor="#177bbd" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_show_mock_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="展示模拟的位置" />
+
+    <TextView
+        android:id="@+id/tv_show_mock_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
 </LinearLayout>

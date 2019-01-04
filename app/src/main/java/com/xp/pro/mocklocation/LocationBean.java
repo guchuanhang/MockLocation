@@ -1,4 +1,4 @@
-package com.xp.pro.mocklocationlib;
+package com.xp.pro.mocklocation;
 
 public class LocationBean {
     private double latitude;

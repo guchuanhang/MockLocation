@@ -1,4 +1,4 @@
-package com.xp.pro.mocklocationlib;
+package com.xp.pro.mocklocation;
 
 import android.content.Context;
 import android.location.Criteria;
@@ -55,9 +55,9 @@ public class MockLocationManager {
      */
     public boolean bRun = false;
 
-    public double latitude;
+    private double mLatitude = 0.0;
 
-    public double longitude;
+    private double mLongitude = 0.0;
 
 
     /**
@@ -81,11 +81,11 @@ public class MockLocationManager {
 
     /**
      * 模拟位置是否启用
-     * 若启用，则addTestProvider
+     * 若启用，则 addTestProvider
      */
     public boolean getUseMockPosition(Context context) {
         // Android 6.0以下，通过Setting.Secure.ALLOW_MOCK_LOCATION判断
-        // Android 6.0及以上，需要【选择模拟位置信息应用】，未找到方法，因此通过addTestProvider是否可用判断
+        // Android 6.0及以上，需要【选择模拟位置信息应用】，未找到方法，因此通过 addTestProvider 是否可用判断
         boolean canMockPosition = (Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ALLOW_MOCK_LOCATION, 0) != 0)
                 || Build.VERSION.SDK_INT > 22;
         if (canMockPosition && hasAddTestProvider == false) {
@@ -179,8 +179,10 @@ public class MockLocationManager {
                         // 模拟位置（addTestProvider成功的前提下）
                         for (String providerStr : mockProviders) {
                             Location mockLocation = new Location(providerStr);
-                            mockLocation.setLatitude(latitude);   // 维度（度）
-                            mockLocation.setLongitude(longitude);  // 经度（度）
+//                            mockLocation.setLatitude(15);   // 维度（度）
+                            mockLocation.setLatitude(mLatitude);   // 维度（度）
+//                            mockLocation.setLongitude(14);  // 经度（度）
+                            mockLocation.setLongitude(mLongitude);  // 经度（度）
                             mockLocation.setAccuracy(0.1f);   // 精度（米）
                             mockLocation.setTime(new Date().getTime());   // 本地时间
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -207,7 +209,7 @@ public class MockLocationManager {
     }
 
     public void setLocationData(double lat, double lon) {
-        latitude = lat;
-        longitude = lon;
+        mLatitude = lat;
+        mLongitude = lon;
     }
 }
