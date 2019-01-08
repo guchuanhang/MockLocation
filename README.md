@@ -14,9 +14,11 @@
 3. 退出APP；
 4. 再次打开APP。
 
-![使用说明](hhttps://img-blog.csdnimg.cn/20190108135733797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1Y2h1YW5oYW5n,size_16,color_FFFFFF,t_70 "使用说明")
+
+![使用说明](https://img-blog.csdnimg.cn/20190108135733797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1Y2h1YW5oYW5n,size_16,color_FFFFFF,t_70 "使用说明")
+
 
 ![成功画面](https://img-blog.csdnimg.cn/20190108135821557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1Y2h1YW5oYW5n,size_16,color_FFFFFF,t_70 "开始模拟位置画面")
 
 
-*GPSService是一个查询模拟位置信息从Service，需要的同学可以快速抽取出来*
+***GPSService是一个查询模拟位置信息从Service，需要的同学可以快速抽取出来***
